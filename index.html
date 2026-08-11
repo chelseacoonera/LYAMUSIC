@@ -1,151 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NRmusic | K-Pop World</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://kit.fontawesome.com/4d61c9328c.js" crossorigin="anonymous"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NRmusic — Explore the world of K-Pop music, artists, albums and latest news.">
+  <title>NRmusic — K-Pop Music</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="noise"></div>
 
-<div class="bg-circle one"></div>
-<div class="bg-circle two"></div>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo" aria-label="NRmusic Home">
+        NR<span>music</span>
+      </a>
 
-<header>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-<nav>
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#trending" class="nav-link">Trending</a>
+        <a href="#artists" class="nav-link">Artists</a>
+        <a href="#albums" class="nav-link">Albums</a>
+        <a href="#news" class="nav-link">News</a>
+      </div>
 
-<div class="logo">
-NR<span>music</span>
-</div>
+      <a href="#trending" class="nav-cta">Explore <span>↗</span></a>
+    </nav>
+  </header>
 
-<ul class="nav-links">
-<li><a href="#">Home</a></li>
-<li><a href="#">Trending</a></li>
-<li><a href="#">Artists</a></li>
-<li><a href="#">Albums</a></li>
-<li><a href="#">News</a></li>
-</ul>
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-content reveal">
+        <div class="eyebrow"><span></span> THE WORLD OF K-POP</div>
+        <h1>Feel the <em>beat.</em><br>Live the K-Pop.</h1>
+        <p class="hero-description">
+          Discover the latest songs, rising artists, iconic albums and stories
+          shaping the K-Pop world — all in one place.
+        </p>
 
-<button class="login-btn">
-Login
-</button>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#trending">Explore Music <span>→</span></a>
+          <a class="btn btn-ghost" href="#news">Latest News</a>
+        </div>
 
-<div class="menu-btn">
-☰
-</div>
+        <div class="hero-meta">
+          <div><strong>500K+</strong><span>Tracks</span></div>
+          <i></i>
+          <div><strong>120+</strong><span>Artists</span></div>
+          <i></i>
+          <div><strong>24/7</strong><span>K-Pop</span></div>
+        </div>
+      </div>
 
-</nav>
+      <div class="hero-visual reveal delay-1">
+        <div class="visual-glow"></div>
+        <div class="hero-card">
+          <div class="hero-card-image">
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=85" alt="K-Pop inspired stage">
+            <div class="image-overlay"></div>
+            <span class="floating-tag">NR PICK</span>
+          </div>
+          <div class="hero-card-info">
+            <div>
+              <small>FEATURED NOW</small>
+              <h3>Music that moves you.</h3>
+            </div>
+            <button class="play-btn" id="heroPlay" aria-label="Play featured music">▶</button>
+          </div>
+          <div class="wave">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="floating-stat"><b>01</b><span>Trending<br>now</span></div>
+      </div>
+    </section>
 
-</header>
+    <section class="section container" id="trending">
+      <div class="section-heading reveal">
+        <div>
+          <span class="section-kicker">DISCOVER</span>
+          <h2>Trending <em>now.</em></h2>
+        </div>
+        <a href="#albums" class="text-link">View all <span>→</span></a>
+      </div>
 
-<section class="hero">
+      <div class="music-grid">
+        <article class="music-card reveal">
+          <div class="cover cover-1">
+            <span>#01</span>
+            <button class="mini-play">▶</button>
+          </div>
+          <div class="music-info">
+            <div><h3>Midnight Energy</h3><p>NRmusic Playlist</p></div>
+            <b>4:12</b>
+          </div>
+        </article>
 
-<div class="hero-text">
+        <article class="music-card reveal delay-1">
+          <div class="cover cover-2">
+            <span>#02</span>
+            <button class="mini-play">▶</button>
+          </div>
+          <div class="music-info">
+            <div><h3>Neon Seoul</h3><p>K-Pop Hits</p></div>
+            <b>3:48</b>
+          </div>
+        </article>
 
-<h1>
-Discover The
-<span>Future</span>
-of K-Pop Music
-</h1>
+        <article class="music-card reveal delay-2">
+          <div class="cover cover-3">
+            <span>#03</span>
+            <button class="mini-play">▶</button>
+          </div>
+          <div class="music-info">
+            <div><h3>Afterglow</h3><p>New Releases</p></div>
+            <b>3:25</b>
+          </div>
+        </article>
 
-<p>
+        <article class="music-card reveal delay-3">
+          <div class="cover cover-4">
+            <span>#04</span>
+            <button class="mini-play">▶</button>
+          </div>
+          <div class="music-info">
+            <div><h3>Red Signal</h3><p>Top K-Pop</p></div>
+            <b>3:57</b>
+          </div>
+        </article>
+      </div>
+    </section>
 
-Explore millions of songs, trending idols,
-exclusive albums, latest news, concerts,
-and your favorite artists in one place.
+    <section class="artists-section" id="artists">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-kicker">SPOTLIGHT</span>
+            <h2>Artists you <em>love.</em></h2>
+          </div>
+          <a href="#news" class="text-link">Discover artists <span>→</span></a>
+        </div>
 
-</p>
+        <div class="artist-grid">
+          <article class="artist-card reveal">
+            <div class="artist-photo photo-1"><span>01</span></div>
+            <div><h3>Stage Icons</h3><p>Powerful performers</p></div>
+          </article>
+          <article class="artist-card reveal delay-1">
+            <div class="artist-photo photo-2"><span>02</span></div>
+            <div><h3>Rising Stars</h3><p>The next generation</p></div>
+          </article>
+          <article class="artist-card reveal delay-2">
+            <div class="artist-photo photo-3"><span>03</span></div>
+            <div><h3>Solo Queens</h3><p>Own the spotlight</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<div class="hero-buttons">
+    <section class="section container" id="albums">
+      <div class="album-banner reveal">
+        <div>
+          <span class="section-kicker">NRMUSIC ORIGINAL</span>
+          <h2>Your next favorite<br><em>album is here.</em></h2>
+          <p>Fresh sounds, unforgettable eras and the releases everyone is talking about.</p>
+          <a href="#news" class="btn btn-primary">Explore Albums <span>→</span></a>
+        </div>
+        <div class="album-disc"><span>NR</span></div>
+      </div>
+    </section>
 
-<a href="#" class="btn-red">
-Explore Now
-</a>
+    <section class="section container" id="news">
+      <div class="section-heading reveal">
+        <div>
+          <span class="section-kicker">LATEST</span>
+          <h2>K-Pop <em>stories.</em></h2>
+        </div>
+        <a href="#home" class="text-link">Back to top <span>↑</span></a>
+      </div>
 
-<a href="#" class="btn-outline">
-Latest News
-</a>
+      <div class="news-grid">
+        <article class="news-card reveal">
+          <span class="news-label">COMEBACK</span>
+          <h3>The sound of a new K-Pop era is here.</h3>
+          <p>Explore releases, concepts and moments making waves across the scene.</p>
+          <a href="#">Read story →</a>
+        </article>
+        <article class="news-card reveal delay-1">
+          <span class="news-label">CULTURE</span>
+          <h3>Why K-Pop keeps connecting the world.</h3>
+          <p>From music to fashion, discover the culture behind the global phenomenon.</p>
+          <a href="#">Read story →</a>
+        </article>
+        <article class="news-card reveal delay-2">
+          <span class="news-label">PLAYLIST</span>
+          <h3>5 tracks to put on repeat today.</h3>
+          <p>A fresh selection for late nights, good moods and everything in between.</p>
+          <a href="#">Read story →</a>
+        </article>
+      </div>
+    </section>
+  </main>
 
-</div>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo">NR<span>music</span></a>
+      <p>Made for K-Pop lovers.</p>
+      <p>© <span id="year"></span> NRmusic</p>
+    </div>
+  </footer>
 
-<div class="stats">
+  <div class="toast" id="toast">Preview mode — music player siap dikembangkan.</div>
 
-<div>
-<h2>20M+</h2>
-<p>Listeners</p>
-</div>
-
-<div>
-<h2>120+</h2>
-<p>Artists</p>
-</div>
-
-<div>
-<h2>500K</h2>
-<p>Songs</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=700" alt="music">
-
-</div>
-
-</section>
-
-<section class="trending">
-
-<h2>Trending Today</h2>
-
-<div class="cards">
-
-<div class="card">
-<i class="fa-solid fa-fire"></i>
-<h3>Top Charts</h3>
-<p>Most streamed K-Pop songs this week.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-star"></i>
-<h3>Popular Artists</h3>
-<p>Discover the hottest idols right now.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-headphones"></i>
-<h3>New Albums</h3>
-<p>Fresh releases from your favorite groups.</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-
-© 2026 NRmusic — Made for K-Pop Lovers ❤️
-
-</p>
-
-</footer>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
