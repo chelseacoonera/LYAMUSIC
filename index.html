@@ -3,224 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NRmusic — Explore the world of K-Pop music, artists, albums and latest news.">
-  <title>NRmusic — K-Pop Music</title>
+  <meta name="description" content="NRMUSIC — Korean music hub dengan playlist, chart, release terbaru, dan pengalaman musik modern.">
+  <title>NRMUSIC — Korean Music Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="noise"></div>
 
-  <header class="header" id="header">
-    <nav class="nav container">
-      <a href="#home" class="logo" aria-label="NRmusic Home">
-        NR<span>music</span>
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav-menu" id="navMenu">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#trending" class="nav-link">Trending</a>
-        <a href="#artists" class="nav-link">Artists</a>
-        <a href="#albums" class="nav-link">Albums</a>
-        <a href="#news" class="nav-link">News</a>
-      </div>
-
-      <a href="#trending" class="nav-cta">Explore <span>↗</span></a>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="NRMUSIC home">
+      <span class="brand-mark">NR</span><span>MUSIC</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a>
+      <a href="#trending">Trending</a>
+      <a href="#releases">Releases</a>
+      <a href="#artists">Artists</a>
+      <a href="#about">About</a>
     </nav>
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" aria-label="Search">⌕</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
   </header>
 
+  <div class="search-panel" id="searchPanel">
+    <input id="searchInput" type="search" placeholder="Search songs, artists, albums..." aria-label="Search">
+    <span>ESC</span>
+  </div>
+
   <main>
-    <section class="hero container" id="home">
-      <div class="hero-content reveal">
-        <div class="eyebrow"><span></span> THE WORLD OF K-POP</div>
-        <h1>Feel the <em>beat.</em><br>Live the K-Pop.</h1>
-        <p class="hero-description">
-          Discover the latest songs, rising artists, iconic albums and stories
-          shaping the K-Pop world — all in one place.
-        </p>
-
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> KOREAN MUSIC / 2026</div>
+        <h1>Feel the <em>K-wave.</em><br>Hear it your way.</h1>
+        <p>Temukan lagu Korea terbaru, artist favorit, chart pilihan, dan vibe musik yang lagi ramai dalam satu ruang.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#trending">Explore Music <span>→</span></a>
-          <a class="btn btn-ghost" href="#news">Latest News</a>
+          <a class="btn btn-primary" href="#trending">Explore music <span>↗</span></a>
+          <button class="btn btn-ghost" id="randomBtn">Surprise me <span>✦</span></button>
         </div>
-
-        <div class="hero-meta">
-          <div><strong>500K+</strong><span>Tracks</span></div>
-          <i></i>
-          <div><strong>120+</strong><span>Artists</span></div>
-          <i></i>
-          <div><strong>24/7</strong><span>K-Pop</span></div>
+        <div class="hero-stats">
+          <div><strong>24K+</strong><span>tracks curated</span></div>
+          <div><strong>480+</strong><span>artists</span></div>
+          <div><strong>12</strong><span>weekly charts</span></div>
         </div>
       </div>
-
-      <div class="hero-visual reveal delay-1">
-        <div class="visual-glow"></div>
+      <div class="hero-art">
         <div class="hero-card">
-          <div class="hero-card-image">
-            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=85" alt="K-Pop inspired stage">
-            <div class="image-overlay"></div>
-            <span class="floating-tag">NR PICK</span>
-          </div>
-          <div class="hero-card-info">
-            <div>
-              <small>FEATURED NOW</small>
-              <h3>Music that moves you.</h3>
-            </div>
-            <button class="play-btn" id="heroPlay" aria-label="Play featured music">▶</button>
-          </div>
-          <div class="wave">
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </div>
-        <div class="floating-stat"><b>01</b><span>Trending<br>now</span></div>
-      </div>
-    </section>
-
-    <section class="section container" id="trending">
-      <div class="section-heading reveal">
-        <div>
-          <span class="section-kicker">DISCOVER</span>
-          <h2>Trending <em>now.</em></h2>
-        </div>
-        <a href="#albums" class="text-link">View all <span>→</span></a>
-      </div>
-
-      <div class="music-grid">
-        <article class="music-card reveal">
-          <div class="cover cover-1">
-            <span>#01</span>
-            <button class="mini-play">▶</button>
-          </div>
-          <div class="music-info">
-            <div><h3>Midnight Energy</h3><p>NRmusic Playlist</p></div>
-            <b>4:12</b>
-          </div>
-        </article>
-
-        <article class="music-card reveal delay-1">
-          <div class="cover cover-2">
-            <span>#02</span>
-            <button class="mini-play">▶</button>
-          </div>
-          <div class="music-info">
-            <div><h3>Neon Seoul</h3><p>K-Pop Hits</p></div>
-            <b>3:48</b>
-          </div>
-        </article>
-
-        <article class="music-card reveal delay-2">
-          <div class="cover cover-3">
-            <span>#03</span>
-            <button class="mini-play">▶</button>
-          </div>
-          <div class="music-info">
-            <div><h3>Afterglow</h3><p>New Releases</p></div>
-            <b>3:25</b>
-          </div>
-        </article>
-
-        <article class="music-card reveal delay-3">
-          <div class="cover cover-4">
-            <span>#04</span>
-            <button class="mini-play">▶</button>
-          </div>
-          <div class="music-info">
-            <div><h3>Red Signal</h3><p>Top K-Pop</p></div>
-            <b>3:57</b>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="artists-section" id="artists">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <span class="section-kicker">SPOTLIGHT</span>
-            <h2>Artists you <em>love.</em></h2>
-          </div>
-          <a href="#news" class="text-link">Discover artists <span>→</span></a>
-        </div>
-
-        <div class="artist-grid">
-          <article class="artist-card reveal">
-            <div class="artist-photo photo-1"><span>01</span></div>
-            <div><h3>Stage Icons</h3><p>Powerful performers</p></div>
-          </article>
-          <article class="artist-card reveal delay-1">
-            <div class="artist-photo photo-2"><span>02</span></div>
-            <div><h3>Rising Stars</h3><p>The next generation</p></div>
-          </article>
-          <article class="artist-card reveal delay-2">
-            <div class="artist-photo photo-3"><span>03</span></div>
-            <div><h3>Solo Queens</h3><p>Own the spotlight</p></div>
-          </article>
+          <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1100&q=85" alt="Live music performance">
+          <div class="hero-card-overlay"></div>
+          <div class="floating-tag top">NOW PLAYING</div>
+          <div class="floating-tag bottom">KOREAN WAVE <span>●</span></div>
+          <button class="big-play" id="heroPlay" aria-label="Play preview">▶</button>
         </div>
       </div>
     </section>
 
-    <section class="section container" id="albums">
-      <div class="album-banner reveal">
-        <div>
-          <span class="section-kicker">NRMUSIC ORIGINAL</span>
-          <h2>Your next favorite<br><em>album is here.</em></h2>
-          <p>Fresh sounds, unforgettable eras and the releases everyone is talking about.</p>
-          <a href="#news" class="btn btn-primary">Explore Albums <span>→</span></a>
+    <section class="section" id="trending">
+      <div class="section-head">
+        <div><span class="kicker">01 / HOT RIGHT NOW</span><h2>Trending tracks</h2></div>
+        <button class="text-btn" id="viewAllBtn">View all <span>→</span></button>
+      </div>
+      <div class="track-grid" id="trackGrid"></div>
+    </section>
+
+    <section class="section releases" id="releases">
+      <div class="section-head">
+        <div><span class="kicker">02 / FRESH DROPS</span><h2>New releases</h2></div>
+        <div class="slider-controls">
+          <button id="prevBtn" aria-label="Previous">←</button><button id="nextBtn" aria-label="Next">→</button>
         </div>
-        <div class="album-disc"><span>NR</span></div>
+      </div>
+      <div class="release-row" id="releaseRow"></div>
+    </section>
+
+    <section class="section chart-section">
+      <div class="section-head">
+        <div><span class="kicker">03 / NRMUSIC CHART</span><h2>Top 05 this week</h2></div>
+        <span class="chart-date">UPDATED WEEKLY</span>
+      </div>
+      <div class="chart-list" id="chartList"></div>
+    </section>
+
+    <section class="section artists" id="artists">
+      <div class="section-head">
+        <div><span class="kicker">04 / DISCOVER</span><h2>Artists to watch</h2></div>
+      </div>
+      <div class="artist-grid">
+        <article class="artist-card">
+          <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=700&q=85" alt="Artist portrait">
+          <div><span>01</span><h3>New voices</h3><p>Fresh energy, fresh sound.</p></div>
+        </article>
+        <article class="artist-card">
+          <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=700&q=85" alt="Concert crowd">
+          <div><span>02</span><h3>Stage energy</h3><p>Live moments worth replaying.</p></div>
+        </article>
+        <article class="artist-card">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85" alt="Music festival">
+          <div><span>03</span><h3>Next wave</h3><p>Sounds beyond the mainstream.</p></div>
+        </article>
       </div>
     </section>
 
-    <section class="section container" id="news">
-      <div class="section-heading reveal">
-        <div>
-          <span class="section-kicker">LATEST</span>
-          <h2>K-Pop <em>stories.</em></h2>
-        </div>
-        <a href="#home" class="text-link">Back to top <span>↑</span></a>
-      </div>
-
-      <div class="news-grid">
-        <article class="news-card reveal">
-          <span class="news-label">COMEBACK</span>
-          <h3>The sound of a new K-Pop era is here.</h3>
-          <p>Explore releases, concepts and moments making waves across the scene.</p>
-          <a href="#">Read story →</a>
-        </article>
-        <article class="news-card reveal delay-1">
-          <span class="news-label">CULTURE</span>
-          <h3>Why K-Pop keeps connecting the world.</h3>
-          <p>From music to fashion, discover the culture behind the global phenomenon.</p>
-          <a href="#">Read story →</a>
-        </article>
-        <article class="news-card reveal delay-2">
-          <span class="news-label">PLAYLIST</span>
-          <h3>5 tracks to put on repeat today.</h3>
-          <p>A fresh selection for late nights, good moods and everything in between.</p>
-          <a href="#">Read story →</a>
-        </article>
-      </div>
+    <section class="newsletter" id="about">
+      <div><span class="kicker">STAY IN THE LOOP</span><h2>Your weekly dose of Korean music.</h2></div>
+      <form id="newsletterForm">
+        <input type="email" placeholder="your@email.com" required aria-label="Email">
+        <button type="submit">Join NRMUSIC <span>→</span></button>
+      </form>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#home" class="logo">NR<span>music</span></a>
-      <p>Made for K-Pop lovers.</p>
-      <p>© <span id="year"></span> NRmusic</p>
-    </div>
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">NR</span> NRMUSIC</div>
+    <p>Curating the Korean sound, one track at a time.</p>
+    <div class="footer-links"><a href="#home">Instagram</a><a href="#home">TikTok</a><a href="#home">YouTube</a></div>
+    <small>© 2026 NRMUSIC. Built for music lovers.</small>
   </footer>
 
-  <div class="toast" id="toast">Preview mode — music player siap dikembangkan.</div>
+  <div class="player" id="player">
+    <div class="player-art"><img id="playerImg" src="" alt=""></div>
+    <div class="player-info"><strong id="playerTitle">Select a track</strong><span id="playerArtist">NRMUSIC</span></div>
+    <button id="playerPlay" aria-label="Play">▶</button>
+    <div class="progress"><span id="progressBar"></span></div>
+    <button id="closePlayer" class="player-close" aria-label="Close player">×</button>
+  </div>
 
+  <a class="wa-float" href="https://wa.me/6282260786076?text=Klik%20For%20Join" target="_blank" rel="noopener" aria-label="Join via WhatsApp">
+    <span class="wa-icon">◔</span><span class="wa-label">Klik For Join</span>
+  </a>
+
+  <div class="toast" id="toast"></div>
   <script src="script.js"></script>
 </body>
 </html>
