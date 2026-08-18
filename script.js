@@ -54,3 +54,104 @@ document.getElementById("viewAllBtn").onclick=()=>toast("You're already explorin
 document.getElementById("newsletterForm").onsubmit=e=>{e.preventDefault();toast("Welcome to NRMUSIC ✦");e.target.reset()};
 
 document.querySelectorAll("img").forEach(img=>img.addEventListener("error",()=>{img.src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80"}));
+
+
+/* =========================================================
+   NRMUSIC AUTO SCROLL
+   - Starts after 2 seconds without user activity.
+   - Scrolls slowly toward the bottom.
+   - At the bottom, quickly returns to the top.
+   - Then repeats while the user remains inactive.
+   - Any click, wheel, touch, or keyboard activity pauses
+     auto-scroll and starts the 2-second inactivity timer again.
+   ========================================================= */
+const autoScroll = (() => {
+  const IDLE_DELAY = 2000;
+  const SCROLL_SPEED = 32;       // pixels per second — slow and smooth
+  const TOP_RESET_SPEED = 1400;  // pixels per second — quick return to top
+  const BOTTOM_TOLERANCE = 4;
+
+  let idleTimer = null;
+  let rafId = null;
+  let lastFrame = 0;
+  let active = false;
+  let returningToTop = false;
+
+  const maxScroll = () =>
+    Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+  const stop = () => {
+    active = false;
+    returningToTop = false;
+    if (rafId !== null) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+    lastFrame = 0;
+  };
+
+  const animate = (timestamp) => {
+    if (!active || document.hidden) return;
+
+    if (!lastFrame) lastFrame = timestamp;
+    const delta = Math.min((timestamp - lastFrame) / 1000, 0.05);
+    lastFrame = timestamp;
+
+    const limit = maxScroll();
+    const current = window.scrollY;
+
+    if (returningToTop) {
+      const next = Math.max(0, current - TOP_RESET_SPEED * delta);
+      window.scrollTo(0, next);
+
+      if (next <= 0) {
+        returningToTop = false;
+        lastFrame = timestamp;
+      }
+    } else {
+      const next = Math.min(limit, current + SCROLL_SPEED * delta);
+      window.scrollTo(0, next);
+
+      if (limit - next <= BOTTOM_TOLERANCE) {
+        returningToTop = true;
+        lastFrame = timestamp;
+      }
+    }
+
+    rafId = requestAnimationFrame(animate);
+  };
+
+  const start = () => {
+    if (active || document.hidden || maxScroll() <= 0) return;
+    active = true;
+    returningToTop = false;
+    lastFrame = 0;
+    rafId = requestAnimationFrame(animate);
+  };
+
+  const resetIdleTimer = () => {
+    stop();
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(start, IDLE_DELAY);
+  };
+
+  // Real user interactions reset the 2-second inactivity countdown.
+  ["pointerdown", "wheel", "touchstart", "keydown", "click"].forEach(eventName => {
+    document.addEventListener(eventName, resetIdleTimer, { passive: true });
+  });
+
+  // Pause while the tab is hidden; restart the inactivity countdown when visible.
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stop();
+      clearTimeout(idleTimer);
+    } else {
+      resetIdleTimer();
+    }
+  });
+
+  // Start the first inactivity countdown.
+  resetIdleTimer();
+
+  return { reset: resetIdleTimer };
+})();
